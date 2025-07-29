@@ -13,7 +13,7 @@
         <module>game-service</module>
         <module>player-service</module>
         <module>stats-service</module>
-        <module>OwnedGameService</module>
+        <module>ownedGame-service</module>
     </modules>
 
     <properties>

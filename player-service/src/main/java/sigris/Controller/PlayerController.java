@@ -3,22 +3,14 @@ package sigris.Controller;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import sigris.security.isAuthorized;
 import sigris.Exceptions.ServiceExceptions;
 import sigris.Model.PlayersDTO.DTOManager;
 import sigris.Model.PlayersDTO.PlayerDTO;
 import sigris.Model.PlayersModel.Player;
-import sigris.Repository.PlayersRepository;
 import sigris.Service.PlayerService;
-import sigris.Service.PlayerStatsService;
-
-//@Operation(summary = "Получить госпожу по id")
-//@GetMapping("/{id}")
-//public MistressDTO getMistress(@PathVariable("id") Long id) throws MistressServicesExceptions.ThereIsNotMistressWIthThatName {
-//    return CreatorDTO.FromMistress((Mistress) mistressService.getKittens(id));
-//}
 
 @RestController
 @RequestMapping("/players")
@@ -41,7 +33,8 @@ public class PlayerController {
     }
 
     @Operation(summary = "Get player by nickname")
-    @GetMapping("/{nickname}")
+    @GetMapping("/{nickname}/player")
+    @isAuthorized
     public ResponseEntity<PlayerDTO> getPlayerById(@PathVariable("nickname") String nickName) {
         try {
             PlayerDTO playerDTO = playersService.getPlayerByNickName(nickName);
@@ -53,7 +46,8 @@ public class PlayerController {
     }
 
     @Operation(summary = "Get player's email")
-    @GetMapping("/{nickname}")
+    @GetMapping("/{nickname}/email")
+    @isAuthorized
     public ResponseEntity<String> getPlayersEmail(@PathVariable("nickname") String nickName) {
         try {
             String email = playersService.getEmail(nickName);
@@ -65,7 +59,8 @@ public class PlayerController {
     }
 
     @Operation(summary = "Get player's name")
-    @GetMapping("/{nickname}")
+    @GetMapping("/{nickname}/name")
+    @isAuthorized
     public ResponseEntity<String> getPlayersName(@PathVariable("nickname") String nickName) {
         try {
             String email = playersService.getName(nickName);
@@ -77,7 +72,8 @@ public class PlayerController {
     }
 
     @Operation(summary = "Get player's surname")
-    @GetMapping("/{nickname}")
+    @GetMapping("/{nickname}/surname")
+    @isAuthorized
     public ResponseEntity<String> getPlayersSurname(@PathVariable("nickname") String nickName) {
         try {
             String email = playersService.getSurName(nickName);

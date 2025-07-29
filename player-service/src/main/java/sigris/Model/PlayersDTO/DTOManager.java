@@ -10,6 +10,7 @@ public class DTOManager {
                 .name(player.getName())
                 .surname(player.getSurname())
                 .email(player.getEmail())
+                .role(player.getRole())
                 .build();
     }
 
@@ -19,6 +20,7 @@ public class DTOManager {
                 .name(dto.getName())
                 .surname(dto.getSurname())
                 .email(dto.getEmail())
+                .role(dto.getRole())
                 .build();
     }
 
