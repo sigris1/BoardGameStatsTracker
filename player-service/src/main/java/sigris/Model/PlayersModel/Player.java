@@ -30,6 +30,9 @@ public class Player implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @Enumerated(EnumType.STRING)
+    private AccountType accountType;
+
     @Column(nullable = false)
     private String password;
 

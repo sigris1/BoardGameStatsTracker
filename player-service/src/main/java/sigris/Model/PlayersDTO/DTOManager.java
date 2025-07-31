@@ -11,6 +11,7 @@ public class DTOManager {
                 .surname(player.getSurname())
                 .email(player.getEmail())
                 .role(player.getRole())
+                .accountType(player.getAccountType())
                 .build();
     }
 
@@ -21,6 +22,7 @@ public class DTOManager {
                 .surname(dto.getSurname())
                 .email(dto.getEmail())
                 .role(dto.getRole())
+                .accountType(dto.getAccountType())
                 .build();
     }
 
